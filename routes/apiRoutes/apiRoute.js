@@ -12,6 +12,10 @@ router.post("/notes", (req, res) => {
     console.log(db);
   });
 
+  router.delete("/notes/:id", milDel, (req, res)=> {
+    console.log("item deleted")
+  })
+
   async function mid(req, res, next) {
 
     id = id + 1;
@@ -22,5 +26,19 @@ router.post("/notes", (req, res) => {
 
 
   }
+
+  async function midDel(req,res,next){
+    let dID = req.params.id
+  
+  
+    for(let i = 0; i < db.length; i++){
+      if(db[i].id == dID){
+        db.splice(i,1);
+        console.log(`item ${i} targeted`);
+      }
+    }
+    res.json(db)
+  }	
+
 
   module.exports = router;
