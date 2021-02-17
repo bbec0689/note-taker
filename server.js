@@ -1,9 +1,9 @@
 
 let express = require("express");
 const app = express();
-const PORT = process.env.PORT || 3010;
-const HTML = require("./Routes/HTML/HTMLRout");
-const API = require("./Routes/API/APIRout");
+const PORT = process.env.PORT || 3030;
+const HTML = require("./routes/htmlRoutes/htmlRoute");
+const API = require("./routes/apiRoutes/apiRoute");
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
